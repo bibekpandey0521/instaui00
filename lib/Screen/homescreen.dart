@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:instaui00/Screen/bottomnavigation_bar.dart';
+import 'package:instaui00/Screen/posts_screen.dart';
 import 'package:instaui00/Screen/story_screen.dart';
 import 'package:instaui00/model/items_model.dart';
 
@@ -33,60 +34,8 @@ class _HomeSceenState extends State<HomeSceen> {
                 child: Container(color: Colors.grey, height: 1),
               ),
               // For Posts
-               Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: userItems.length,
-            itemBuilder: (context, index) {
-              UserDetail user = userItems[index];
-              return Column(
-                children: [
-                  Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: AssetImage(
-                        user.image,
-
-                      ),
-                    ),
-                   const  SizedBox(width: 5,),
-                      Text(
-                        user.username,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(Icons.more_horiz)
-                  ],
-                 ),
-                 Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Container(
-                  
-                  height: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage(
-                        user.image,
-                      ),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  ),
-              ),
-                  // Text(user.username,
-                  // style: const TextStyle(
-                  //   fontWeight:FontWeight.bold 
-                  //   ),),
-                ],
-              );
-            },
-          ),
-        ),
-     
+              const Posts(),
+            
             ],
           ),
         ),
@@ -96,6 +45,7 @@ class _HomeSceenState extends State<HomeSceen> {
     );
   }
 }
+
 
 Row storiesText() {
   return const Row(
